@@ -4,10 +4,6 @@
 
 	.uagb-forms-main-form {
 
-		.uagb-forms-form-hidden-data {
-			display: none;
-		}
-
 		.uagb-forms-required-wrap {
 			float: right;
 		}
@@ -34,7 +30,7 @@
 	line-height: 20px;
 }
 //width for select box in editor
-select.uagb-forms-select-box.uagb-forms-input {
+select.uagb-forms-input {
 	max-width: 100%;
 }
 

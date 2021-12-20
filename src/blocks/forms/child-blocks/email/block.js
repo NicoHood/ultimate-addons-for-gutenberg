@@ -8,6 +8,7 @@ import edit from './edit';
 import save from './save';
 import { __ } from '@wordpress/i18n';
 import { registerBlockType } from '@wordpress/blocks';
+import deprecated from './deprecated';
 
 registerBlockType( 'uagb/forms-email', {
 	title: __( 'Email', 'ultimate-addons-for-gutenberg' ),
@@ -22,4 +23,5 @@ registerBlockType( 'uagb/forms-email', {
 	},
 	example: {},
 	save,
+	deprecated
 } );

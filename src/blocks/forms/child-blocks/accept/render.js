@@ -64,7 +64,7 @@ const Render = ( props ) => {
 				<label
 					name={ block_id }
 					htmlFor={ `uagb-forms-accept-${ block_id }` }
-					className={ `uagb-forms-accept-label ${ isRequired }` }
+					className={ `${ isRequired }` }
 				>
 					{ acceptText }
 				</label>

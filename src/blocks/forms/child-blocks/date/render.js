@@ -42,7 +42,7 @@ const Render = ( props ) => {
 		date_html = (
 			<input
 				type="date"
-				className="uagb-forms-date-input uagb-forms-input"
+				className="uagb-forms-input"
 				required={ dateRequired }
 				min={ validation_min_value }
 				max={ validation_max_value }
@@ -53,7 +53,7 @@ const Render = ( props ) => {
 		date_html = (
 			<input
 				type="date"
-				className="uagb-forms-date-input uagb-forms-input"
+				className="uagb-forms-input"
 				required={ dateRequired }
 				name={ block_id }
 			/>
@@ -68,7 +68,6 @@ const Render = ( props ) => {
 		<>
 			<div
 				className={ classnames(
-					'uagb-forms-date-wrap',
 					'uagb-forms-field-set',
 					`uagb-block-${ block_id }`
 				) }
@@ -97,7 +96,7 @@ const Render = ( props ) => {
 					) }
 					value={ name }
 					onChange={ ( value ) => setAttributes( { name: value } ) }
-					className={ `uagb-forms-date-label ${ isRequired } uagb-forms-input-label` }
+					className={ `${ isRequired } uagb-forms-input-label` }
 					multiline={ false }
 					id={ block_id }
 				/>

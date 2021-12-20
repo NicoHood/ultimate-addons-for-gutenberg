@@ -176,10 +176,6 @@ function styling( props ) {
 			'outline': ' none !important',
 			'border': '2px solid ' + inputactiveColor,
 		},
-
-		' .uagb-forms-main-form .uagb-forms-main-submit-button-wrap': {
-			'text-align': buttonAlign,
-		},
 		' .uagb-forms-main-form .uagb-forms-main-submit-button': {
 			'color': submitColor,
 			'font-size': generateCSSUnit(
@@ -287,6 +283,20 @@ function styling( props ) {
 			'color': inputColor,
 		},
 	};
+
+	if( 'center' === buttonAlign ){
+		selectors[' .uagb-forms-main-form .uagb-forms-main-submit-button'] = {
+			'margin': '0 auto',
+		};
+	}else if( 'right' === buttonAlign ){
+		selectors[' .uagb-forms-main-form .uagb-forms-main-submit-button'] = {
+			'margin-left': 'auto',
+		};
+	}else{
+		selectors[' .uagb-forms-main-form .uagb-forms-main-submit-button'] = {
+			'margin-right': 'auto',
+		};
+	}
 
 	if ( 'boxed' === formStyle ) {
 		selectors[ ' .uagb-forms-main-form  .uagb-forms-input' ] = {

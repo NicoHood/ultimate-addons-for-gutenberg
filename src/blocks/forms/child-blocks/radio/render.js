@@ -171,7 +171,7 @@ const Render = ( props ) => {
 					onChange={ ( value ) =>
 						setAttributes( { radioName: value } )
 					}
-					className={ `uagb-forms-radio-label ${ isRequired } uagb-forms-input-label` }
+					className={ `${ isRequired } uagb-forms-input-label` }
 					multiline={ false }
 					id={ block_id }
 				/>

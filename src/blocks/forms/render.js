@@ -53,26 +53,7 @@ const Render = ( props ) => {
 				onClick={ onSubmitClick }
 				className="uagb-forms-main-submit-button"
 			>
-				<RichText
-					tagName="div"
-					placeholder={ __(
-						'Submit',
-						'ultimate-addons-for-gutenberg'
-					) }
-					value={ submitButtonText }
-					onChange={ ( value ) =>
-						setAttributes( {
-							submitButtonText: value,
-						} )
-					}
-					className="uagb-forms-main-submit-button-text"
-					multiline={ false }
-					allowedFormats={ [
-						'core/bold',
-						'core/italic',
-						'core/strikethrough',
-					] }
-				/>
+				{ submitButtonText }
 			</button>
 		);
 	};
@@ -100,16 +81,6 @@ const Render = ( props ) => {
 								className="uagb-forms-recaptcha"
 							/>
 						) }
-						<input
-							type="hidden"
-							name="uagb_forms_form_label"
-							value={ formLabel }
-						/>
-						<input
-							type="hidden"
-							name="uagb_forms_form_id"
-							value={ `uagb-form-${ block_id }` }
-						/>
 					</div>
 
 					{ reCaptchaEnable &&
@@ -126,10 +97,7 @@ const Render = ( props ) => {
 								></div>
 							</>
 						) }
-
-					<div className="uagb-forms-main-submit-button-wrap">
 						{ renderButtonHtml() }
-					</div>
 				</form>
 			</div>
 		</>

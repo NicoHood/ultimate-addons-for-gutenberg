@@ -4,7 +4,7 @@
 
 import classnames from 'classnames';
 
-import { InnerBlocks, RichText } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 export default function save( props ) {
 	const { attributes } = props;
@@ -26,11 +26,7 @@ export default function save( props ) {
 	const renderButtonHtml = () => {
 		return (
 			<button className="uagb-forms-main-submit-button">
-				<RichText.Content
-					tagName="div"
-					value={ submitButtonText }
-					className="uagb-forms-main-submit-button-text"
-				/>
+				{ submitButtonText }
 			</button>
 		);
 	};
@@ -57,16 +53,6 @@ export default function save( props ) {
 							className="uagb-forms-recaptcha"
 						/>
 					) }
-					<input
-						type="hidden"
-						className="uagb_forms_form_label"
-						value={ formLabel }
-					/>
-					<input
-						type="hidden"
-						className="uagb_forms_form_id"
-						value={ `uagb-form-${ block_id }` }
-					/>
 				</div>
 				{ reCaptchaEnable &&
 					'v2' === reCaptchaType &&
@@ -82,9 +68,7 @@ export default function save( props ) {
 							></div>
 						</>
 					) }
-				<div className="uagb-forms-main-submit-button-wrap">
-					{ renderButtonHtml() }
-				</div>
+				{ renderButtonHtml() }
 			</form>
 			{ 'message' === confirmationType && (
 				<>
@@ -94,7 +78,7 @@ export default function save( props ) {
 							'uagb-forms-submit-message-hide'
 						) }
 					>
-						<span>{ confirmationMessage }</span>
+						{ confirmationMessage }
 					</div>
 					<div
 						className={ classnames(
@@ -102,7 +86,7 @@ export default function save( props ) {
 							'uagb-forms-submit-message-hide'
 						) }
 					>
-						<span>{ failedMessage }</span>
+						{ failedMessage }
 					</div>
 				</>
 			) }

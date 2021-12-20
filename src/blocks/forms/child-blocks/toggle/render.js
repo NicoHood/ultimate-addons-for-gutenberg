@@ -37,7 +37,6 @@ const Render = ( props ) => {
 		<>
 			<div
 				className={ classnames(
-					'uagb-forms-toggle-wrap',
 					'uagb-forms-field-set',
 					`uagb-block-${ block_id }`
 				) }
@@ -66,7 +65,7 @@ const Render = ( props ) => {
 					) }
 					value={ name }
 					onChange={ ( value ) => setAttributes( { name: value } ) }
-					className={ `uagb-forms-toggle-label ${ isRequired } uagb-forms-input-label` }
+					className={ `${ isRequired } uagb-forms-input-label` }
 					multiline={ false }
 					id={ block_id }
 				/>

@@ -20,7 +20,6 @@ const Render = ( props ) => {
 		<>
 			<div
 				className={ classnames(
-					'uagb-forms-url-wrap',
 					'uagb-forms-field-set',
 					`uagb-block-${ block_id }`
 				) }
@@ -47,7 +46,7 @@ const Render = ( props ) => {
 					) }
 					value={ name }
 					onChange={ ( value ) => setAttributes( { name: value } ) }
-					className={ `uagb-forms-url-label ${ isRequired } uagb-forms-input-label` }
+					className={ `${ isRequired } uagb-forms-input-label` }
 					multiline={ false }
 					id={ block_id }
 				/>
@@ -56,7 +55,7 @@ const Render = ( props ) => {
 					name={ block_id }
 					placeholder={ placeholder }
 					required={ required }
-					className="uagb-forms-url-input uagb-forms-input"
+					className="uagb-forms-input"
 				/>
 			</div>
 		</>

@@ -30,7 +30,6 @@ const Render = ( props ) => {
 		<>
 			<div
 				className={ classnames(
-					'uagb-forms-email-wrap',
 					'uagb-forms-field-set',
 					`uagb-block-${ block_id }`
 				) }
@@ -57,13 +56,13 @@ const Render = ( props ) => {
 					) }
 					value={ name }
 					onChange={ ( value ) => setAttributes( { name: value } ) }
-					className={ `uagb-forms-email-label ${ isRequired } uagb-forms-input-label` }
+					className={ `${ isRequired } uagb-forms-input-label` }
 					multiline={ false }
 					id={ block_id }
 				/>
 				<input
 					type="text"
-					className="uagb-forms-email-input uagb-forms-input"
+					className="uagb-forms-input"
 					placeholder={ placeholder }
 					required={ required }
 					name={ block_id }

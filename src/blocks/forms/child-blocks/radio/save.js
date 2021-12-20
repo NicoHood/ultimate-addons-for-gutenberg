@@ -28,7 +28,7 @@ export default function save( props ) {
 			<RichText.Content
 				tagName="div"
 				value={ radioName }
-				className={ `uagb-forms-radio-label ${ isRequired } uagb-forms-input-label` }
+				className={ `${ isRequired } uagb-forms-input-label` }
 				id={ block_id }
 			/>
 

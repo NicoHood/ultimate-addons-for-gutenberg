@@ -88,7 +88,7 @@ const Render = ( props ) => {
 
 		return (
 			<select
-				className="uagb-forms-select-box uagb-forms-input"
+				className="uagb-forms-input"
 				required={ selectRequired }
 				name={ block_id }
 				defaultValue=""
@@ -137,7 +137,6 @@ const Render = ( props ) => {
 		<>
 			<div
 				className={ classnames(
-					'uagb-forms-select-wrap',
 					'uagb-forms-field-set',
 					`uagb-block-${ block_id }`
 				) }
@@ -168,7 +167,7 @@ const Render = ( props ) => {
 					onChange={ ( value ) =>
 						setAttributes( { selectName: value } )
 					}
-					className={ `uagb-forms-select-label ${ isRequired } uagb-forms-input-label` }
+					className={ `${ isRequired } uagb-forms-input-label` }
 					multiline={ false }
 					id={ block_id }
 				/>

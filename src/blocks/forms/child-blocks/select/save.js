@@ -20,7 +20,6 @@ export default function save( props ) {
 	return (
 		<div
 			className={ classnames(
-				'uagb-forms-select-wrap',
 				'uagb-forms-field-set',
 				`uagb-block-${ block_id }`
 			) }
@@ -28,11 +27,11 @@ export default function save( props ) {
 			<RichText.Content
 				tagName="div"
 				value={ selectName }
-				className={ `uagb-forms-select-label ${ isRequired } uagb-forms-input-label` }
+				className={ `${ isRequired } uagb-forms-input-label` }
 				id={ block_id }
 			/>
 			<select
-				className="uagb-forms-select-box uagb-forms-input"
+				className="uagb-forms-input"
 				required={ selectRequired }
 				name={ block_id }
 			>

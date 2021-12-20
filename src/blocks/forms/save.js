@@ -11,7 +11,6 @@ export default function save( props ) {
 
 	const {
 		block_id,
-		formLabel,
 		submitButtonText,
 		confirmationType,
 		confirmationMessage,

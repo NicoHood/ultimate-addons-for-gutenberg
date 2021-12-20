@@ -1,6 +1,5 @@
 import classnames from 'classnames';
 import React, { useCallback, useLayoutEffect } from 'react';
-import { __ } from '@wordpress/i18n';
 import styles from './editor.lazy.scss';
 
 const ALLOWED_BLOCKS = [
@@ -18,7 +17,7 @@ const ALLOWED_BLOCKS = [
 	'uagb/forms-accept',
 ];
 
-import { InnerBlocks, RichText } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
 const Render = ( props ) => {
 	// Add and remove the CSS on the drop and remove of the component.
@@ -31,11 +30,10 @@ const Render = ( props ) => {
 
 	props = props.parentProps;
 
-	const { attributes, setAttributes, deviceType } = props;
+	const { attributes, deviceType } = props;
 	const {
 		block_id,
 		submitButtonText,
-		formLabel,
 		buttonSize,
 		reCaptchaEnable,
 		reCaptchaType,

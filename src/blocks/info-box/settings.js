@@ -2124,24 +2124,28 @@ const Settings = ( props ) => {
 					/>
 				</UAGAdvancedPanelBody>
 	};
+
+	let uagLastOpenedState = JSON.parse(localStorage.getItem('uagLastOpenedState'));
+
 	return (
 		<>
 			{ ( iconimgPosition === 'above-title' ||
 				iconimgPosition === 'below-title' ) &&
 				blockControls() }
 			<InspectorControls>
-				<InspectorTabs>
-					<InspectorTab { ...UAGTabs.general }>
+				<InspectorTabs defaultTab={uagLastOpenedState?.inspectorTabName}>
+					<InspectorTab isActive={ UAGTabs.general.type === uagLastOpenedState?.inspectorTabName } { ...UAGTabs.general }>
 						{ presetSettings() }
 						{ imageIconPanel() }
 						{ typographySettings() }
 						{ seperatorSettings() }
 						{ ctaSettings() }
 					</InspectorTab>
-					<InspectorTab { ...UAGTabs.style }>
+					<InspectorTab isActive={ UAGTabs.style.type === uagLastOpenedState?.inspectorTabName } { ...UAGTabs.style }>
 						{ styleSettings() }
 					</InspectorTab>
 					<InspectorTab
+					isActive={ UAGTabs.advance.type === uagLastOpenedState?.inspectorTabName }
 						{ ...UAGTabs.advance }
 						parentProps={ props }
 					></InspectorTab>

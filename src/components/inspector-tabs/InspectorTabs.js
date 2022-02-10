@@ -24,8 +24,8 @@ const InspectorTabs = ( props ) => {
 	}, [] );
 
 	const { defaultTab, children, tabs } = props;
-
 	const [ currentTab, setCurrentTab ] = useState( defaultTab ? defaultTab : tabs[ 0 ] );
+	console.log(currentTab);
 
 	const tabContainer = useRef();
 
@@ -43,7 +43,7 @@ const InspectorTabs = ( props ) => {
 			),
 		{ threshold: [ 1 ] }
 	);
-	
+
 	const renderUAGTabsSettingsInOrder = () => {
 
 		// Inspector Tabs Priority Rendering Code. (Conflicts with 3rd Party plugin panels in Inspector Panel)
@@ -100,7 +100,7 @@ const InspectorTabs = ( props ) => {
 	const _onTabChange = ( tab ) => {
 		renderUAGTabsSettingsInOrder();
 		setCurrentTab( tab );
-		
+
 		if ( sidebarPanel ) {
 			sidebarPanel.setAttribute( 'data-uagb-tab', tab );
 		}

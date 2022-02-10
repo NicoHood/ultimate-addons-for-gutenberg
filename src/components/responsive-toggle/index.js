@@ -6,12 +6,12 @@
  import { __ } from '@wordpress/i18n'
  import { useState, useCallback } from '@wordpress/element'
  import { dispatch } from '@wordpress/data'
- 
+
  const ResponsiveToggle = props => {
     const { label, responsive } = props;
      const deviceType = useDeviceType()
      const [ displayResponsive, toggleResponsive ] = useState( false );
- 
+
      const customSetPreviewDeviceType = useCallback( device => {
 		 const {
 			 __experimentalSetPreviewDeviceType: setPreviewDeviceType,
@@ -19,7 +19,7 @@
 		setPreviewDeviceType( device );
 		toggleResponsive( displayResponsive );
 	}, [] )
- 
+
     const devicesSvgs = {
 		desktop: (
 			<svg
@@ -70,13 +70,30 @@
 			itemClass: 'uagb-mobile-tab uagb-responsive-tabs',
 		},
 	];
- 
+
      // In the Widget editor, the device type is always set to desktop.
      if ( ! deviceType ) {
          return null
      }
- 
-     const commonResponsiveHandler = () => {
+
+     const commonResponsiveHandler = (e) => {
+
+		let eventTriggerElement = e.target;
+		if ( 'svg' === eventTriggerElement.tagName ) {
+		eventTriggerElement = eventTriggerElement.closest('.uag-responsive-common-button');
+		}
+		let inspectorTab = eventTriggerElement.closest('.uagb-inspector-tab');
+		let panelBody = eventTriggerElement.closest('.components-panel__body.is-opened');
+		let panelBodyIndex = Array.prototype.indexOf.call(inspectorTab.children, panelBody);
+		let inspectorTabName = 'style';
+		if ( inspectorTab.classList.contains('uagb-tab-content-general') ) {
+			inspectorTabName = 'general';
+		}
+		let data = {
+			'inspectorTabName' : inspectorTabName,
+			'panelBodyIndex' : panelBodyIndex
+		}
+		localStorage.setItem('uagLastOpenedState', JSON.stringify(data));
 		toggleResponsive( ! displayResponsive );
 	};
 
@@ -127,6 +144,5 @@
         </div>
      )
  }
- 
+
  export default ResponsiveToggle
- 

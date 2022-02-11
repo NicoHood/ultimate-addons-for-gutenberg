@@ -29,14 +29,14 @@ const InspectorTab = ( props ) => {
 				panelToActivate.querySelector( '.components-button' ).click();
 
 				if ( settingsPopup ) {
-					let settingsPopupToActivate = panelToActivate.querySelector( '.uag-typography-options' );
-					console.log(panelToActivate);
-					console.log(settingsPopupToActivate);
+					// Need a delay to open the popup as the makup load just after the above click function called.
+					setTimeout(function() {
+						let settingsPopupToActivate = panelToActivate.querySelector( '.uag-typography-options' );
 
-					if ( settingsPopupToActivate && ! settingsPopupToActivate.classList.contains('active') ) {
-						console.log(settingsPopupToActivate);
-						settingsPopupToActivate.querySelector( '.components-button' ).click();
-					}
+						if ( settingsPopupToActivate && ! settingsPopupToActivate.classList.contains('active') ) {
+							settingsPopupToActivate.querySelector( '.components-button' ).click();
+						}
+					}, 100);
 				}
 			}
 		}

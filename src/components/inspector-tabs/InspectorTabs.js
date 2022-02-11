@@ -23,9 +23,9 @@ const InspectorTabs = ( props ) => {
 		};
 	}, [] );
 
+	const uagLastOpenedState = JSON.parse(localStorage.getItem('uagLastOpenedState'));
 	const { defaultTab, children, tabs } = props;
 	const [ currentTab, setCurrentTab ] = useState( defaultTab ? defaultTab : tabs[ 0 ] );
-	console.log(currentTab);
 
 	const tabContainer = useRef();
 
@@ -74,6 +74,12 @@ const InspectorTabs = ( props ) => {
 			observer.observe( container );
 		}
 		renderUAGTabsSettingsInOrder();
+
+		// This code is to fix the side-effect of the editor responsive click settings panel refresh issue.
+		if ( uagLastOpenedState && uagLastOpenedState.inspectorTabName && currentTab !== uagLastOpenedState.inspectorTabName ) {
+			setCurrentTab( uagLastOpenedState.inspectorTabName )
+		}
+		// Above Section Ends.
 		// component will unmount
 		return () => {
 
@@ -87,7 +93,6 @@ const InspectorTabs = ( props ) => {
 				}
 			}
 		};
-
 
 	}, [] );
 

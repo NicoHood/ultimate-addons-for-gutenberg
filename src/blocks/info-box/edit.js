@@ -18,7 +18,6 @@ const UAGBInfoBox = ( props ) => {
 	const deviceType = useDeviceType();
 
 	useEffect( () => {
-		console.log('componetmount');
 
 		const { setAttributes } = props;
 		// Assigning block_id in the attribute.
@@ -52,11 +51,6 @@ const UAGBInfoBox = ( props ) => {
 			}
 		}
 
-		// componentWillUnmount
-		return () => {
-			console.log('componentWillUnmount');
-		};
-
 	}, [] );
 
 	useEffect( () => {
@@ -69,10 +63,6 @@ const UAGBInfoBox = ( props ) => {
 	}, [ props ] );
 
 	useEffect( () => {
-		let data = localStorage.getItem('uagLastOpenedState');
-
-
-		console.log('componentDevice');
 
 		// Replacement for componentDidUpdate.
 		const blockStyling = styling( props );

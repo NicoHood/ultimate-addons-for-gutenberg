@@ -78,22 +78,43 @@
 
      const commonResponsiveHandler = (e) => {
 
+		// This code is to fix the side-effect of the editor responsive click settings panel refresh issue.
 		let eventTriggerElement = e.target;
+		let settingsPopup = null;
+
 		if ( 'svg' === eventTriggerElement.tagName ) {
-		eventTriggerElement = eventTriggerElement.closest('.uag-responsive-common-button');
+			eventTriggerElement = eventTriggerElement.closest('.uag-responsive-common-button');
 		}
+		if ( eventTriggerElement.closest('.uag-typography-options.active') ) {
+
+			settingsPopup = '.uag-typography-options';
+		}
+
 		let inspectorTab = eventTriggerElement.closest('.uagb-inspector-tab');
 		let panelBody = eventTriggerElement.closest('.components-panel__body.is-opened');
-		let panelBodyIndex = Array.prototype.indexOf.call(inspectorTab.children, panelBody);
+		let panelBodyClass = '';
+
+		if ( panelBody.classList && 0 !== panelBody.classList ) {
+			panelBody.classList.forEach((className) => {
+				if ( className.includes('uag-advance-panel-body') ) {
+					panelBodyClass = className;
+				}
+			});
+		}
+
 		let inspectorTabName = 'style';
 		if ( inspectorTab.classList.contains('uagb-tab-content-general') ) {
 			inspectorTabName = 'general';
 		}
 		let data = {
 			'inspectorTabName' : inspectorTabName,
-			'panelBodyIndex' : panelBodyIndex
+			'panelBodyClass' : panelBodyClass,
+			'settingsPopup' : settingsPopup
 		}
+
 		localStorage.setItem('uagLastOpenedState', JSON.stringify(data));
+
+		// Above Section Ends.
 		toggleResponsive( ! displayResponsive );
 	};
 

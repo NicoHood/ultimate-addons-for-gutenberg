@@ -2133,15 +2133,15 @@ const Settings = ( props ) => {
 				iconimgPosition === 'below-title' ) &&
 				blockControls() }
 			<InspectorControls>
-				<InspectorTabs defaultTab={uagLastOpenedState?.inspectorTabName}>
-					<InspectorTab isActive={ UAGTabs.general.type === uagLastOpenedState?.inspectorTabName } { ...UAGTabs.general }>
+				<InspectorTabs>
+					<InspectorTab { ...UAGTabs.general }>
 						{ presetSettings() }
 						{ imageIconPanel() }
 						{ typographySettings() }
 						{ seperatorSettings() }
 						{ ctaSettings() }
 					</InspectorTab>
-					<InspectorTab isActive={ UAGTabs.style.type === uagLastOpenedState?.inspectorTabName } { ...UAGTabs.style }>
+					<InspectorTab { ...UAGTabs.style }>
 						{ styleSettings() }
 					</InspectorTab>
 					<InspectorTab

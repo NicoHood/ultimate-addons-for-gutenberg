@@ -10,6 +10,8 @@ import {
 	useEffect,
 } from '@wordpress/element';
 
+import getUAGEditorStateLocalStorage from '@Controls/getUAGEditorStateLocalStorage';
+
 const LAYOUT = 'general',
 	STYLE = 'style',
 	ADVANCE = 'advance';
@@ -23,7 +25,7 @@ const InspectorTabs = ( props ) => {
 		};
 	}, [] );
 
-	const uagLastOpenedState = JSON.parse( localStorage.getItem( 'uagLastOpenedState' ) ); // eslint-disable-line no-undef
+	const uagLastOpenedState = getUAGEditorStateLocalStorage( 'uagLastOpenedState' );
 	const { defaultTab, children, tabs } = props;
 	const [ currentTab, setCurrentTab ] = useState( defaultTab ? defaultTab : tabs[ 0 ] );
 
@@ -76,8 +78,8 @@ const InspectorTabs = ( props ) => {
 		renderUAGTabsSettingsInOrder();
 
 		// This code is to fix the side-effect of the editor responsive click settings panel refresh issue.
-		if ( uagLastOpenedState && uagLastOpenedState.inspectorTabName && currentTab !== uagLastOpenedState.inspectorTabName ) {
-			setCurrentTab( uagLastOpenedState.inspectorTabName )
+		if ( uagLastOpenedState && uagLastOpenedState?.inspectorTabName && currentTab !== uagLastOpenedState?.inspectorTabName ) {
+			setCurrentTab( uagLastOpenedState?.inspectorTabName )
 		}
 		// Above Section Ends.
 		// component will unmount

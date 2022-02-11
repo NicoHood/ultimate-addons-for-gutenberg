@@ -1,5 +1,6 @@
 import { applyFilters } from '@wordpress/hooks';
 import { useRef, useEffect  } from '@wordpress/element';
+import getUAGEditorStateLocalStorage from '@Controls/getUAGEditorStateLocalStorage';
 
 const InspectorTab = ( props ) => {
 	const { children, isActive, type } = props;
@@ -13,12 +14,10 @@ const InspectorTab = ( props ) => {
 		);
 	};
 
-	const uagLastOpenedState = JSON.parse( localStorage.getItem( 'uagLastOpenedState' ) ) || {}; // eslint-disable-line no-undef
-	const {
-		inspectorTabName,
-		panelBodyClass,
-		settingsPopup
-	} = uagLastOpenedState;
+	const uagLastOpenedState = getUAGEditorStateLocalStorage( 'uagLastOpenedState' );
+	const inspectorTabName = uagLastOpenedState?.inspectorTabName;
+	const panelBodyClass = uagLastOpenedState?.panelBodyClass;
+	const settingsPopup = uagLastOpenedState?.settingsPopup;
 
 	useEffect( () => {
 		// This code is to fix the side-effect of the editor responsive click settings panel refresh issue.

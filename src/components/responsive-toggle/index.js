@@ -6,6 +6,7 @@
  import { __ } from '@wordpress/i18n'
  import { useState, useCallback } from '@wordpress/element'
  import { dispatch } from '@wordpress/data'
+ import getUAGEditorStateLocalStorage from '@Controls/getUAGEditorStateLocalStorage';
 
  const ResponsiveToggle = props => {
     const { label, responsive } = props;
@@ -112,7 +113,8 @@
 			settingsPopup
 		}
 
-		localStorage.setItem( 'uagLastOpenedState', JSON.stringify( data ) ); // eslint-disable-line no-undef
+		const uagLocalStorage = getUAGEditorStateLocalStorage();
+		uagLocalStorage.setItem( 'uagLastOpenedState', JSON.stringify( data ) ); // eslint-disable-line no-undef
 
 		// Above Section Ends.
 		toggleResponsive( ! displayResponsive );

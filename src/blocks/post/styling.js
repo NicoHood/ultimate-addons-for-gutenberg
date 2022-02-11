@@ -366,12 +366,12 @@ function styling( props ) {
 		'border-color': borderColor,
 		'border-style': borderStyle,
 	};
-	selectors[ ' .uagb-post__text.uagb-post__cta:hover' ] = {
+	selectors[ ' .uagb-post__text .uagb-post__cta:hover' ] = {
 		'color': ctaHColor,
 		'background': ctaBgHColor,
 		'border-color': borderHColor,
 	};
-	selectors[ ' .uagb-post__text.uagb-post__cta:hover a' ] = {
+	selectors[ ' .uagb-post__text .uagb-post__cta:hover a' ] = {
 		'color': ctaHColor,
 		'background': ctaBgHColor,
 		'border-color': borderHColor,
@@ -690,6 +690,9 @@ function styling( props ) {
 
 	if ( 'infinite' === paginationType ) {
 		if ( 'button' === paginationEventType ) {
+			selectors['.uagb-post__items'] = {
+				'margin-bottom': '40px',
+			};
 			selectors[ ' .uagb-post__load-more-wrap' ] = {
 				'text-align': paginationAlign,
 			};

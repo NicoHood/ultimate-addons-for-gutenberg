@@ -1,5 +1,5 @@
 import { PanelBody } from '@wordpress/components';
-import { useRef, useEffect  } from '@wordpress/element';
+import { useRef } from '@wordpress/element';
 import React from 'react';
 
 const UAGAdvancedPanelBody = ( props ) => {

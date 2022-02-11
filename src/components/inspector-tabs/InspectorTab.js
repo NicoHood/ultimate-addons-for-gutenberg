@@ -13,7 +13,7 @@ const InspectorTab = ( props ) => {
 		);
 	};
 
-	const uagLastOpenedState = JSON.parse(localStorage.getItem('uagLastOpenedState')) || {};
+	const uagLastOpenedState = JSON.parse( localStorage.getItem( 'uagLastOpenedState' ) ) || {}; // eslint-disable-line no-undef
 	const {
 		inspectorTabName,
 		panelBodyClass,
@@ -23,20 +23,20 @@ const InspectorTab = ( props ) => {
 	useEffect( () => {
 		// This code is to fix the side-effect of the editor responsive click settings panel refresh issue.
 		if ( inspectorTabName && type === inspectorTabName && panelBodyClass ) {
-			let panelToActivate = tabRef.current.querySelector(`.${uagLastOpenedState.panelBodyClass}`);
+			const panelToActivate = tabRef.current.querySelector( `.${uagLastOpenedState.panelBodyClass}` );
 
-			if ( panelToActivate && ! panelToActivate.classList.contains('is-opened') ) {
+			if ( panelToActivate && ! panelToActivate.classList.contains( 'is-opened' ) ) {
 				panelToActivate.querySelector( '.components-button' ).click();
 
 				if ( settingsPopup ) {
 					// Need a delay to open the popup as the makup load just after the above click function called.
-					setTimeout(function() {
-						let settingsPopupToActivate = panelToActivate.querySelector( '.uag-typography-options' );
+					setTimeout( function() {
+						const settingsPopupToActivate = panelToActivate.querySelector( '.uag-typography-options' );
 
-						if ( settingsPopupToActivate && ! settingsPopupToActivate.classList.contains('active') ) {
+						if ( settingsPopupToActivate && ! settingsPopupToActivate.classList.contains( 'active' ) ) {
 							settingsPopupToActivate.querySelector( '.components-button' ).click();
 						}
-					}, 100);
+					}, 100 );
 				}
 			}
 		}

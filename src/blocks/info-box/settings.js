@@ -2125,8 +2125,6 @@ const Settings = ( props ) => {
 				</UAGAdvancedPanelBody>
 	};
 
-	let uagLastOpenedState = JSON.parse(localStorage.getItem('uagLastOpenedState'));
-
 	return (
 		<>
 			{ ( iconimgPosition === 'above-title' ||
@@ -2145,7 +2143,6 @@ const Settings = ( props ) => {
 						{ styleSettings() }
 					</InspectorTab>
 					<InspectorTab
-					isActive={ UAGTabs.advance.type === uagLastOpenedState?.inspectorTabName }
 						{ ...UAGTabs.advance }
 						parentProps={ props }
 					></InspectorTab>

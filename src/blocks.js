@@ -9,7 +9,8 @@
  * Webpack is compiling as the input file.
  */
 
-localStorage.removeItem('uagLastOpenedState');
+// Delete the local storage on every refresh.
+localStorage.removeItem( 'uagLastOpenedState' ); // eslint-disable-line no-undef
 
 __webpack_public_path__ = uagb_blocks_info.uagb_url + 'dist/';
 

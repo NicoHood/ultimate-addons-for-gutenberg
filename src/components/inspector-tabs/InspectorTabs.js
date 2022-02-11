@@ -23,7 +23,7 @@ const InspectorTabs = ( props ) => {
 		};
 	}, [] );
 
-	const uagLastOpenedState = JSON.parse(localStorage.getItem('uagLastOpenedState'));
+	const uagLastOpenedState = JSON.parse( localStorage.getItem( 'uagLastOpenedState' ) ); // eslint-disable-line no-undef
 	const { defaultTab, children, tabs } = props;
 	const [ currentTab, setCurrentTab ] = useState( defaultTab ? defaultTab : tabs[ 0 ] );
 

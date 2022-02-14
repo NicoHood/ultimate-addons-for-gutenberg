@@ -19,6 +19,10 @@ function inlineStyles( props ) {
 		backgroundType,
 		desktopMarginType,
 		desktopPaddingType,
+		borderStyle,
+		borderWidth,
+		borderRadius,
+		borderColor,
 	} = props.attributes;
 
 	const style = {
@@ -28,7 +32,14 @@ function inlineStyles( props ) {
 		'padding-right': generateCSSUnit( rightPadding, desktopPaddingType ),
 		'margin-top': generateCSSUnit( topMargin, desktopMarginType ),
 		'margin-bottom': generateCSSUnit( bottomMargin, desktopMarginType ),
+		'border-radius': generateCSSUnit( borderRadius , 'px'),
 	};
+
+	if ( borderStyle != 'none' ) {
+		style['border-style'] = borderStyle
+		style['border-width'] = generateCSSUnit( borderWidth, 'px' )
+		style['border-color'] =  borderColor
+	}
 
 	const position = backgroundPosition.replace( '-', ' ' );
 

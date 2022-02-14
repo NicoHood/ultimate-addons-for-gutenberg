@@ -13,7 +13,9 @@
 
 // Delete the local storage on every refresh.
 const uagLocalStorage = getUAGEditorStateLocalStorage();
-uagLocalStorage.removeItem( 'uagLastOpenedState' ); // eslint-disable-line no-undef
+if ( uagLocalStorage ) {
+	uagLocalStorage.removeItem( 'uagLastOpenedState' );
+}
 
 __webpack_public_path__ = uagb_blocks_info.uagb_url + 'dist/';
 

@@ -4,10 +4,10 @@ const getUAGEditorStateLocalStorage = ( key = false ) => {
 	}
 
 	if ( ! key ) {
-		return localStorage; // eslint-disable-line no-undef
+		return localStorage;
 	}
 
-	const uagLastOpenedState = localStorage.getItem( 'uagLastOpenedState' ); // eslint-disable-line no-undef
+	const uagLastOpenedState = localStorage.getItem( 'uagLastOpenedState' );
 
 	if ( uagLastOpenedState ) {
 

@@ -9,8 +9,8 @@ function inlineStyles( props ) {
 		rightPadding,
 		topPadding,
 		bottomPadding,
-		topMargin,
-		bottomMargin,
+		topMarginDesktop,
+		bottomMarginDesktop,
 		backgroundPosition,
 		backgroundSize,
 		backgroundAttachment,
@@ -30,8 +30,8 @@ function inlineStyles( props ) {
 		'padding-bottom': generateCSSUnit( bottomPadding, desktopPaddingType ),
 		'padding-left': generateCSSUnit( leftPadding, desktopPaddingType ),
 		'padding-right': generateCSSUnit( rightPadding, desktopPaddingType ),
-		'margin-top': generateCSSUnit( topMargin, desktopMarginType ),
-		'margin-bottom': generateCSSUnit( bottomMargin, desktopMarginType ),
+		'margin-top': generateCSSUnit( topMarginDesktop, desktopMarginType ),
+		'margin-bottom': generateCSSUnit( bottomMarginDesktop, desktopMarginType ),
 		'border-radius': generateCSSUnit( borderRadius , desktopMarginType ),
 	};
 
